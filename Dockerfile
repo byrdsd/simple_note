@@ -1,9 +1,14 @@
-FROM ruby:2.5
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+FROM ruby:2.7
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client yarn
 RUN mkdir /simple_note
 WORKDIR /simple_note
 COPY Gemfile /simple_note/Gemfile
 COPY Gemfile.lock /simple_note/Gemfile.lock
+COPY package.json /simple_note/package.json
+COPY yarn.lock /simple_note/yarn.lock
+RUN yarn install
 RUN bundle install
 COPY . /simple_note
 

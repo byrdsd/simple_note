@@ -25,6 +25,7 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
+  gem 'rails-controller-testing'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end

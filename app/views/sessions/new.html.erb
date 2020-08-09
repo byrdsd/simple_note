@@ -1,0 +1,12 @@
+<%= notice %>
+
+<%= form_for :login, url: session_path do |f| %>
+  <%= label :username, "Username" %>
+  <%= f.text_field :username %>
+  <%= label :password, "Password" %>
+  <%= f.text_field :password, type: "password" %>
+  <%= f.submit :submit %>
+<% end %>
+
+<%= link_to 'Create Account', users_path %>
+

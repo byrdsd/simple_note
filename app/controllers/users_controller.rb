@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authorized, only: [:new, :create]
+  before_action :redirect_to_welcome
 
   def new
     @user = User.new
@@ -10,7 +11,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        session[:user_id] = @user[:_id].to_s
+        format.html { redirect_to welcome_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -20,7 +22,8 @@ class UsersController < ApplicationController
   end
 
   private
-    def user_params
-      params.require(:user).permit(:username, :password, :email)
-    end
+
+  def user_params
+    params.require(:user).permit(:username, :password, :email)
+  end
 end

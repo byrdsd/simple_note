@@ -2,9 +2,12 @@ class ApplicationController < ActionController::Base
   before_action :authorized
   helper_method :current_user
   helper_method :logged_in?
+  helper_method :redirect_to_welcome
 
   def current_user
-      User.find_by(id: session[:user_id])
+    User.find_by(id: session[:user_id])
+  rescue Mongoid::Errors::DocumentNotFound
+    nil
   end
 
   def logged_in?
@@ -13,5 +16,9 @@ class ApplicationController < ActionController::Base
 
   def authorized
     redirect_to '/' unless logged_in?
+  end
+
+  def redirect_to_welcome
+    redirect_to welcome_path if logged_in?
   end
 end

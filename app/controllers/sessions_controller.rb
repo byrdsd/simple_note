@@ -7,12 +7,10 @@ class SessionsController < ApplicationController
 
   def create
     respond_to do |format|
-      @user = User.find_by(
-        username: user_params[:username],
-        password: user_params[:password]
-      )
+      @user = User.find_by(username: user_params[:username]).try(:authenticate, user_params[:password])
       if @user
         session[:user_id] = @user[:_id].to_s
+        @user.update(active_at: Time.new)
         format.html { redirect_to notes_path }
       else
         format.html { redirect_to sessions_path }
@@ -21,6 +19,13 @@ class SessionsController < ApplicationController
   end
 
   def welcome
+  end
+
+  def destroy
+    @user = current_user
+    reset_session
+    @user.update(active_at: 0)
+    authorized
   end
 
   private

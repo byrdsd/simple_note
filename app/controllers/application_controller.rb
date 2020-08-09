@@ -1,10 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :authorized
-  helper_method :current_user
+  helper_method :active_user
   helper_method :logged_in?
   helper_method :redirect_to_notes
-  helper_method :log_in
-  helper_method :log_out
 
   def current_user
     User.find_by(id: session[:user_id])

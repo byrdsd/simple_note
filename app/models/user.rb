@@ -1,6 +1,9 @@
 class User
   include ActiveModel::SecurePassword
   include Mongoid::Document
+  validates :username, presence: true
+  validates :email, presence: true
+  validates :password, length: { in: 8..20 }
   has_secure_password
 
   attr_reader :user_id

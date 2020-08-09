@@ -22,7 +22,7 @@ class NotesController < ApplicationController
       if @note.save
         format.html { redirect_to notes_path }
       else
-        format.html { redirect_to new_note_path, notice: "The note could not be created"}
+        format.html { redirect_to new_note_path, flash: { errors: @note.errors } }
       end
     end
   end

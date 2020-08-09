@@ -1,3 +1,19 @@
+production:
+  clients:
+    default:
+      database: simple-note
+      hosts:
+        - cluster0-shard-00-00.kbxnd.mongodb.net:27017
+        - cluster0-shard-00-01.kbxnd.mongodb.net:27017
+        - cluster0-shard-00-02.kbxnd.mongodb.net:27017
+      options:
+        user: <%= ENV["DB_APP_NAME"] %>
+        password: <%= ENV["DB_ACCESS_KEY"] %>
+        ssl: true
+        server_selection_timeout: 5
+        auth_source: admin
+  options:
+    raise_not_found_error: false
 development:
   clients:
     default:

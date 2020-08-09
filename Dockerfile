@@ -10,8 +10,8 @@ COPY package.json /simple_note/package.json
 COPY yarn.lock /simple_note/yarn.lock
 RUN yarn install
 RUN bundle install
-RUN RAILS_ENV=production bundle exec rake assets:precompile
 COPY . /simple_note
+RUN RAILS_ENV=production bundle exec rake assets:precompile
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/

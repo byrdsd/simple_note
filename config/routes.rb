@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "signup", to: "users#new", as: :users
   
   post "signup", to: "users#create", as: :user
-  
-  get "welcome", to: "sessions#welcome", as: :welcome
+
+  get "notes", to: "notes#index", as: :notes
+
+  resources :notes, except: :index
 end

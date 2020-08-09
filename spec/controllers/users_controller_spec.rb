@@ -22,7 +22,7 @@ RSpec.describe UsersController, type: :controller do
         password: "123",
         email: "joe@joesplace.com"
       }}
-      expect(response.location).to eq("#{HOST}#{welcome_path}")
+      expect(response.location).to eq("#{HOST}#{notes_path}")
     end
   end
 end

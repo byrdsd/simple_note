@@ -1,0 +1,12 @@
+<h1>Notes</h1>
+
+<% @notes.each do |note| %>
+  <div>
+    <h2>
+      <%= note.title %> <small>(Created by <%= @user.username %>, <%= pretty_date note.timestamp %>)</small>
+    </h2>
+    <p>
+      <%= note.body %>
+    </p>
+  </div>
+<% end %>

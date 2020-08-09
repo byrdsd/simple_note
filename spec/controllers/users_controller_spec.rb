@@ -1,12 +1,5 @@
 require "rails_helper"
 
-HOST = "http://test.host"
-TEST_USER = {
-  username: "joe",
-  password: "123",
-  email: "joe@joesplace.com"
-}
-
 RSpec.describe UsersController, type: :controller do
 
   describe "#create" do
@@ -22,7 +15,7 @@ RSpec.describe UsersController, type: :controller do
         password: "123",
         email: "joe@joesplace.com"
       }}
-      expect(response.location).to eq("#{HOST}#{welcome_path}")
+      expect(response.location).to eq("#{HOST}#{notes_path}")
     end
   end
 end

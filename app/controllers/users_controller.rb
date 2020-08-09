@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authorized, only: [:new, :create]
-  before_action :redirect_to_welcome
+  before_action :redirect_to_notes
 
   def new
     @user = User.new
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user[:_id].to_s
-        format.html { redirect_to welcome_path, notice: 'User was successfully created.' }
+        format.html { redirect_to notes_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

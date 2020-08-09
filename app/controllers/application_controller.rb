@@ -6,8 +6,6 @@ class ApplicationController < ActionController::Base
 
   def current_user
     User.find_by(id: session[:user_id])
-  rescue Mongoid::Errors::DocumentNotFound
-    nil
   end
 
   def logged_in?

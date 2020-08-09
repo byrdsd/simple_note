@@ -11,10 +11,12 @@ class SessionsController < ApplicationController
         username: user_params[:username],
         password: user_params[:password]
       )
-      session[:user_id] = @user[:_id].to_s
-      format.html { redirect_to welcome_path }
-    rescue Mongoid::Errors::DocumentNotFound
-      format.html { render :new, notice: "Invalid credentials"  }
+      if @user
+        session[:user_id] = @user[:_id].to_s
+        format.html { redirect_to welcome_path }
+      else
+        format.html { redirect_to sessions_path }
+      end
     end
   end
 

@@ -13,6 +13,7 @@ development:
         server_selection_timeout: 5
         auth_source: admin
   options:
+    raise_not_found_error: false
 test:
   clients:
     default:
@@ -30,3 +31,5 @@ test:
         server_selection_timeout: 5
         ssl: true
         auth_source: admin
+  options:
+    raise_not_found_error: false

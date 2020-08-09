@@ -1,2 +1,4 @@
-<h1>Notes#edit</h1>
-<p>Find me in app/views/notes/edit.html.erb</p>
+<h1>New Note</h1>
+<%= notice %>
+
+<%= render 'form', user: @user, note: @note, method: "put" %>

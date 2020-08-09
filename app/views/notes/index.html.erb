@@ -1,9 +1,14 @@
 <h1>Notes</h1>
-
+<%= link_to "New", new_note_path %>
 <% @notes.each do |note| %>
   <div>
     <h2>
-      <%= note.title %> <small>(Created by <%= @user.username %>, <%= pretty_date note.timestamp %>)</small>
+      <%= note.title %>
+      <small>
+        (Created by <%= @user.username %>, <%= pretty_date note.timestamp %>
+        <%= link_to "Edit", edit_note_path(note.id) %>
+        <%= link_to "Delete", note, method: :delete %>
+      </small>
     </h2>
     <p>
       <%= note.body %>

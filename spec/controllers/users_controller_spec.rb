@@ -1,12 +1,5 @@
 require "rails_helper"
 
-HOST = "http://test.host"
-TEST_USER = {
-  username: "joe",
-  password: "123",
-  email: "joe@joesplace.com"
-}
-
 RSpec.describe UsersController, type: :controller do
 
   describe "#create" do

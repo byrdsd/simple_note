@@ -1,11 +1,5 @@
 require 'rails_helper'
 
-TEST_NOTE = {
-  title: "My Note",
-  body: "Remember to write more notes",
-  timestamp: "1596945504"
-}
-
 RSpec.describe Note, type: :model do
   describe "New note" do
     it "creates a new note" do

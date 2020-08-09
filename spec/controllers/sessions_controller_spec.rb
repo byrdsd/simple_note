@@ -1,7 +1,5 @@
 require "rails_helper"
 
-HOST = "http://test.host"
-
 RSpec.describe SessionsController, type: :controller do
   describe "#create" do
 

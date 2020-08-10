@@ -1,5 +1,6 @@
 <h1>Notes</h1>
-<div class="u-marginBelow3">
+<div>
+  <%= link_to "New", new_note_path, class: "sn-Button" %>
   <% @notes.each do |note| %>
     <div class="sn-Note">
       <div class="sn-Note-wrapper">
@@ -21,4 +22,3 @@
     </div>
   <% end %>
 </div>
-<%= link_to "New", new_note_path, class: "sn-Button" %>

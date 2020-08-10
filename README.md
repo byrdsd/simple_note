@@ -1,6 +1,6 @@
 # Simple Note
 
-A simple notetaking app in Ruby on Rails. See the demo at https://simple-note.herokuapp.com
+A simple notetaking app in Ruby on Rails. See the demo at https://simple-note-live.herokuapp.com
 
 ## Approach
 

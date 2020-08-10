@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :authorized, only: [:new, :create]
+  skip_before_action :authorize_and_update, only: [:new, :create]
   before_action :redirect_to_notes, only: [:new, :create]
 
   def new
@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
   def destroy
     reset_session
     @user.update_attribute(:active_at, 0)
-    authorized
+    redirect_to '/'
   end
 
   private

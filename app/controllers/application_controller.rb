@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authorized
+  before_action :authorize_and_update
   helper_method :active_user
   helper_method :logged_in?
   helper_method :redirect_to_notes
@@ -13,8 +13,9 @@ class ApplicationController < ActionController::Base
     current_user[:active_at] >= Time.new.to_i - 900
   end
 
-  def authorized
+  def authorize_and_update
     redirect_to '/' unless active_user?
+    @user.update_attribute(:active_at, Time.new.to_i)
   end
 
   def redirect_to_notes

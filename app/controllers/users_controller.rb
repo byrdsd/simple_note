@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authorized, only: [:new, :create]
+  skip_before_action :authorize_and_update, only: [:new, :create]
   before_action :redirect_to_notes
 
   def new

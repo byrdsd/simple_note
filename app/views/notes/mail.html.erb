@@ -1,0 +1,13 @@
+<h1>Send Note</h1>
+
+<%= form_for :mail, method: :post, html: { class: "sn-Form" } do |f| %>
+  <%= form_field do %>
+    <%= f.label :email, class: "sn-FormField-label" %>
+    <%= f.text_field :email, class: "sn-FormField-input" %>
+  <% end %>
+
+  <%= form_field do %>
+    <%= f.submit :Send, class: "sn-Button" %>
+    <%= link_to :Cancel, notes_path, class: "sn-Button sn-Button--cancel" %>
+    <% end %>
+<% end %>

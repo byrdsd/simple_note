@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :redirect_to_notes
 
   def current_user
-    User.find_by(id: session[:user_id])
+    @user = User.find_by(id: session[:user_id])
   end
 
   def active_user?

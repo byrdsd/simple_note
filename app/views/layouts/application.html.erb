@@ -13,6 +13,9 @@
   <body>
     <%= tag.header class: "sn-Header" do %>
       <%= tag.section class: "sn-Header-wrapper" do %>
+        <%= tag.div class:  "sn-Header-notification" do %>
+          <%= notice %>
+        <% end %>
         <%= content_for :header_content %>
         <%= auth_link %>
       <% end %>

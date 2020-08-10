@@ -14,7 +14,8 @@
         </p>
       </div>
       <div class="sn-Note-buttons">
-        <%= link_to "Edit", edit_note_path(note.id), class: "sn-Button u-marginAfter1" %>
+        <%= link_to "Edit", edit_note_path(note.id), class: "sn-Button" %>
+        <%= link_to "Send".html_safe, mail_note_path(note.id), class: "sn-Button" %>
         <%= link_to "Delete", note, method: :delete, class: "sn-Button sn-Button--danger" %>
       </div>
     </div>

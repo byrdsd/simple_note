@@ -11,5 +11,9 @@ Rails.application.routes.draw do
 
   get "notes", to: "notes#index", as: :notes
 
-  resources :notes, except: :index
+  get "notes/:id/mail", to: "notes#mail", as: :mail_note
+
+  post "notes/:id/mail", to: "notes#deliver", as: :send
+
+  resources :notes, except: [:index, :show]
 end

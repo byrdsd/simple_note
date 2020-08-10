@@ -22,7 +22,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    @user = current_user
     reset_session
     @user.update_attribute(:active_at, 0)
     authorized

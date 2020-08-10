@@ -13,5 +13,15 @@ Rails.application.configure do
   config.action_dispatch.show_exceptions = false
   config.action_controller.allow_forgery_protection = false
   config.action_mailer.perform_caching = false
-  config.action_mailer.delivery_method = :test
+  config.action_mailer.delivery_method = :smtp
+  host = 'localhost:3000'
+  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    user_name: "s.note.mailer@gmail.com",
+    password: ENV['MAILER_PASSWORD'],
+    authentication: "plain",
+    enable_starttls_auto: true
+  }
 end

@@ -7,6 +7,8 @@
   padding: 0 24px;
 
   &-wrapper {
+    display: flex;
+    justify-content: space-between;
     max-width: 900px;
     margin: auto;
     text-align: right;
@@ -22,5 +24,9 @@
     &:hover {
       color: #88f;
     }
+  }
+
+  &-notification {
+    padding: 24px 0;
   }
 }

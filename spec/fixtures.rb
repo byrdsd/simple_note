@@ -1,7 +1,8 @@
 TEST_USER = User.new(
   username: "joe",
   password: "123",
-  email: "joe@joesplace.com"
+  email: "joe@joesplace.com",
+  active_at: Time.new.to_i
 )
 
 TEST_NOTE = {

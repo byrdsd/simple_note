@@ -4,11 +4,11 @@ RSpec.describe UsersController, type: :controller do
 
   describe "#create" do
     it "creates a new user" do
+      user = double(TEST_USER)
       mdb = instance_double("Mongoid::Persistable::Savable")
-      user = class_double("User").
-        as_stubbed_const(transfer_nested_constants: true)
-      allow(user).to receive(:find_by).and_return(_id: "1")
-      allow(user).to receive(:new).and_return(TEST_USER)
+      allow(User).to receive(:find_by) { user }
+      allow(User).to receive(:new) { user }
+      allow(user).to receive(:[]) { Time.new.to_i }
       allow(mdb).to receive(:save).and_return(true)
       post :create, params: { user: {
         username: "joe",

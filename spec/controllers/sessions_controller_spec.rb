@@ -4,9 +4,9 @@ RSpec.describe SessionsController, type: :controller do
   describe "#create" do
 
     it "creates a session when signin is successful" do
-      user = class_double("User").
-        as_stubbed_const(transfer_nested_constants: true)
-      allow(user).to receive(:find_by).and_return(id: "1")
+      user = double(TEST_USER)
+      allow(User).to receive(:find_by) { user }
+      allow(user).to receive(:[]) { Time.new.to_i }
       post :create, params: { login: { username: "joe", password: "123" } }
       expect(response.location).to eq("#{HOST}#{notes_path}")
     end

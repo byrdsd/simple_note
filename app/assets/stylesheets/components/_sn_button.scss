@@ -1,9 +1,10 @@
 $button-color: #59f;
 $danger-button-color: #c66;
+$cancel-button-color: #fb6;
 
 .sn-Button {
   display: inline-block;
-  padding: 8px;
+  padding: 8px 16px;
   background-color: $button-color;
   color: #fff;
   border: 0;
@@ -20,6 +21,14 @@ $danger-button-color: #c66;
 
     &:hover {
       background-color: darken($danger-button-color, 8%);
+    }
+  }
+
+  &--cancel {
+    background-color: $cancel-button-color;
+
+    &:hover {
+      background-color: darken($cancel-button-color, 8%);
     }
   }
 }

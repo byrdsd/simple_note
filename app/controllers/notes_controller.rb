@@ -10,6 +10,7 @@ class NotesController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @note = Note.find_by(id: params[:id], user_id: session[:user_id])
   end
 
@@ -20,7 +21,7 @@ class NotesController < ApplicationController
       if @note.save
         format.html { redirect_to notes_path }
       else
-        format.html { redirect_to new_note_path, flash: { errors: @note.errors } }
+        format.html { redirect_to new_note_path, notice: "Unable to save note. Please make sure at least a title or body is provided." }
       end
     end
   end
@@ -31,7 +32,7 @@ class NotesController < ApplicationController
       if @note.update(note_params)
         format.html { redirect_to notes_path }
       else
-        format.html { redirect_to new_note_path, notice: "The note could not be created"}
+        format.html { redirect_to new_note_path, notice: "Unable to save note. Please make sure at least a title or body is provided." }
       end
     end
   end

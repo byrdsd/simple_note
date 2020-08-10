@@ -2,7 +2,7 @@ class User
   include ActiveModel::SecurePassword
   include Mongoid::Document
   validates :username, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, length: { in: 8..20 }
   has_secure_password
 

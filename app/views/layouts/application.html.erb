@@ -4,13 +4,21 @@
     <title>SimpleNote</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= link_to :logout, logout_path %>
-    <%= yield %>
+    <%= tag.header class: "sn-Header" do %>
+      <%= tag.section class: "sn-Header-wrapper" do %>
+        <%= content_for :header_content %>
+        <%= auth_link %>
+      <% end %>
+    <% end %>
+    <%= tag.main class: "sn-Main" do %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>

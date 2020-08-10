@@ -15,4 +15,7 @@ class User
   field :active_at, type: Integer
 
   index({ username: 1 }, { unique: true, name: "username_index" })
+
+  def logged_in
+  end
 end

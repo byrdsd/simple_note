@@ -1,0 +1,19 @@
+.sn-Note {
+  display: flex;
+  border-bottom: 1px dashed #555;
+  padding: 8px;
+  margin: 8px 0;
+
+  &-wrapper {
+    flex: 0 1 80%;
+  }
+
+  &-buttons {
+    flex: 1 0 20%;
+  }
+
+  &-meta {
+    font-size: 14px;
+    font-weight: normal;
+  }
+}

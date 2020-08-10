@@ -1,0 +1,26 @@
+.sn-Header {
+  width: calc(100%;
+  margin: auto auto 24px;
+  background-color: #fff;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  padding: 0 24px;
+
+  &-wrapper {
+    max-width: 900px;
+    margin: auto;
+    text-align: right;
+  }
+
+  &-link {
+    display: inline-block;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.25s;
+    padding: 24px 0;
+
+    &:hover {
+      color: #88f;
+    }
+  }
+}

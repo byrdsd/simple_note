@@ -4,10 +4,8 @@ class NotesController < ApplicationController
     @user = current_user
   end
 
-  def show
-  end
-
   def new
+    @user = current_user
     @note = Note.new
   end
 

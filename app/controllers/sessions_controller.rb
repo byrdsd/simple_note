@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         session[:user_id] = @user[:_id].to_s
         format.html { redirect_to notes_path }
       else
-        format.html { redirect_to sessions_path }
+        format.html { redirect_to sessions_path, notice: "Invalid credentials. Please check your username and password and try again" }
       end
     end
   end

@@ -1,12 +1,24 @@
-<%= notice %>
+<%= form_for :login, url: login_path, html: { class: "sn-Form" } do |f| %>
+  <%= tag.h1 class: "sn-Form-title" do %>
+    Log in
+  <% end %>
 
-<%= form_for :login, url: login_path do |f| %>
-  <%= label :username, "Username" %>
-  <%= f.text_field :username %>
-  <%= label :password, "Password" %>
-  <%= f.text_field :password, type: "password" %>
-  <%= f.submit :submit %>
+  <%= form_field do %>
+    <%= f.label :username, class: "sn-FormField-label" %>
+    <%= f.text_field :username, class: "sn-FormField-input" %>
+  <% end %>
+
+  <%= form_field do %>
+    <%= f.label :password, class: "sn-FormField-label" %>
+    <%= f.text_field :password, type: :password, class: "sn-FormField-input" %>
+  <% end %>
+  
+  <%= form_field do %>
+    <%= f.submit "Log in", class: "sn-Button" %> or
+    <%= link_to 'Create Account', users_path %>
+  <% end %>
+
+  <% if notice %>
+    <%= notice %>
+  <% end %>
 <% end %>
-
-<%= link_to 'Create Account', users_path %>
-

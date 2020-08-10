@@ -1,0 +1,25 @@
+$button-color: #59f;
+$danger-button-color: #c66;
+
+.sn-Button {
+  display: inline-block;
+  padding: 8px;
+  background-color: $button-color;
+  color: #fff;
+  border: 0;
+  border-radius: 2px;
+  transition: all 0.25s;
+  text-decoration: none;
+
+  &:hover {
+    background-color: darken($button-color, 8%);
+  }
+
+  &--danger {
+    background-color: $danger-button-color;
+
+    &:hover {
+      background-color: darken($danger-button-color, 8%);
+    }
+  }
+}

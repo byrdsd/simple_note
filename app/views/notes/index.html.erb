@@ -1,17 +1,23 @@
 <h1>Notes</h1>
-<%= link_to "New", new_note_path %>
-<% @notes.each do |note| %>
-  <div>
-    <h2>
-      <%= note.title %>
-      <small>
-        (Created by <%= @user.username %>, <%= pretty_date note.timestamp %>
-        <%= link_to "Edit", edit_note_path(note.id) %>
-        <%= link_to "Delete", note, method: :delete %>
-      </small>
-    </h2>
-    <p>
-      <%= note.body %>
-    </p>
-  </div>
-<% end %>
+<div class="u-marginBelow3">
+  <% @notes.each do |note| %>
+    <div class="sn-Note">
+      <div class="sn-Note-wrapper">
+        <h2 class="sn-Note-title">
+          <%= show_title note %>
+          <small class="u-marginAfter2 sn-Note-meta">
+            (Created by <%= @user.username %>, <%= pretty_date note.timestamp %>
+          </small>
+        </h2>
+        <p class="sn-Note-body">
+          <%= note.body %>
+        </p>
+      </div>
+      <div class="sn-Note-buttons">
+        <%= link_to "Edit", edit_note_path(note.id), class: "sn-Button u-marginAfter1" %>
+        <%= link_to "Delete", note, method: :delete, class: "sn-Button sn-Button--danger" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= link_to "New", new_note_path, class: "sn-Button" %>

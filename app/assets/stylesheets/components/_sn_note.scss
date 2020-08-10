@@ -1,11 +1,18 @@
 .sn-Note {
-  display: flex;
+  display: block;
   border-bottom: 1px dashed #555;
   padding: 8px;
-  margin: 8px 0;
+
+  @media (min-width: 600px) {
+    display: flex;
+    margin-right: 24px;
+  }
 
   &-wrapper {
-    flex: 0 1 80%;
+    @media (min-width: 600px) {
+      padding-right: 24px;
+      flex: 0 1 80%;
+    }
   }
 
   &-buttons {
@@ -13,6 +20,7 @@
   }
 
   &-meta {
+    display: inline-block;
     font-size: 14px;
     font-weight: normal;
   }

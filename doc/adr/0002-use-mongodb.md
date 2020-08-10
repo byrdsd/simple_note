@@ -16,5 +16,4 @@ The app will use mongoDB for its database system, as its JSON-like structure is 
 
 ## Consequences
 
-Rather than a one-to-many relationship between a user and their notes, each note will have a single user id for note lookup.
 This will require using mongoid rather than active-admin, which breaks from standard Ruby.
